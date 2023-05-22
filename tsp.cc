@@ -1,7 +1,7 @@
 /*
  * Main file for Traveling-Salesperson solver.
  * Read a cities file in TSV format into a Cities object, then run
- * of several solver algorithms on it and output the best result.
+ * several solver algorithms on it and output the best result.
  */
 
 #include "cities.hh"
@@ -35,7 +35,7 @@ is_improved(const Cities& cities,
 }
 
 //////////////////////////////////////////////////////////////////////////////
-// exhaustive_search searches niter randomized operdinges on the given cities
+// randomizd_search searches randomized permutations on the given cities
 // The best cities permutation is returned.
 Cities::permutation_t
 randomized_search(const Cities& cities, uint64_t niter)

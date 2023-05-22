@@ -1,2 +1,11 @@
 # TSP GA
- Genetic algorithm for sovling the traveling salesperson problem written in C++
+ Genetic algorithm for sovling the traveling salesperson problem written in C++. This project was done with 
+[RGuglin](https://github.com/RGuglin).
+
+The traveling salesperson problem is a famous NP-hard problem in computing wherein a computer attempts to determine the fastest route between each city in a map, visiting each city once and returning to the origin city. This program uses a genetic algorithm to attempt to find a quick solution to a randomized list of "cities" with random placements on a map, and compares it to a randomized search for an optimized solution and an exhaustive search, in which all possible permutations of a city is searched. The goal is to obtain a reasonably quick permutation of cities to visit in as little time as possible.
+
+The genetic algorithm works by constructing a population of "chromosomes" which store an ordering of cities. A number of chromosomes are chosen to "recombine". The selection process is weighted, with the chance of being selected being greater for those chromosomes with quicker traveling times. The selected chromosomes are combined together to create a new ordering of cities with attributes of both of its parents. During the recombination process, there is a chance to "mutate", which inroduces a random change to the cities ordering in the child chromosome. This selection process is repeated with these new children chromosomes, and then on their children, repeating until a single chromosome is left. This is returned as the result of the genetic algorithm search.
+
+The program can be compiled with Makefile by running `make tsp` in this directory, and the program can be run from the command line. The program takes three command-line arguments: a list of cities in .tsv format, a population size to determine how many chromosomes are used, and a mutation rate. The effectiveness of the genetic algorithm compared to randomized and exhaustive searches varies depending on the the arguments given. When finished, the shortest path discovered is output into a file named shortest.tsv. The number of iterations allowed for each algorithm is limited by a constant in the code set to 1,000,000.
+
+Some manual memory management is used, so the code has been tested with Valgrind to ensure there are no memory leaks.
